@@ -61,6 +61,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     lazy var overviewLabel: UILabel = {
         let label = UILabel()
         label.textColor = .darkGray
+        label.font = UIFont.systemFont(ofSize: 12)
         label.numberOfLines = 0
         return label
     }()
