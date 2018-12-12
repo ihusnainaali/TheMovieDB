@@ -23,7 +23,7 @@ class MovieViewModel: NSObject {
         dateFormatterInput.dateFormat = "yyyy-MM-dd"
         
         let dateFormatterOutput = DateFormatter()
-        dateFormatterOutput.dateFormat = "MMMM dd,yyyy"
+        dateFormatterOutput.dateFormat = "MMMM dd, yyyy"
         
         guard let releaseDate = movie.releaseDate,
             let formattedDate = dateFormatterInput.date(from: releaseDate) else {
