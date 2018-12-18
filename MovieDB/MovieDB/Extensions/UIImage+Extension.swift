@@ -10,12 +10,12 @@ import UIKit
 
 extension UIImage {
     
-    func aspectRatio() -> CGFloat? {
+    private func aspectRatio() -> CGFloat? {
         guard size.height > 0, size.width > 0 else { return nil }
         return size.width / size.height
     }
     
-    func isWidthGreaterOrEqualToHeight() -> Bool {
+    private func isWidthGreaterOrEqualToHeight() -> Bool {
         return size.width >= size.height
     }
     
