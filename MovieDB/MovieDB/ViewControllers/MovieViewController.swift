@@ -39,7 +39,8 @@ class MovieViewController: UIViewController, NavigationTitleProtocol {
     }()
     
     lazy var likeButton: TwitterLikeButton = {
-        let button = TwitterLikeButton()
+        let button = TwitterLikeButton(frame: customViewFrame)
+        button.clipsToBounds = true
         button.addTarget(self, action: #selector(didTapOnButton(_:)), for: .touchUpInside)
         button.selectWithoutAnimation(viewModel.isLiked)
         return button
@@ -70,22 +71,15 @@ class MovieViewController: UIViewController, NavigationTitleProtocol {
     
     private func setupViews() {
         view.addSubview(posterImageView)
-        posterImageView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.left.lessThanOrEqualToSuperview().offset(xOffset)
-            make.right.lessThanOrEqualToSuperview().offset(-xOffset)
-            make.top.lessThanOrEqualTo(view.safeAreaLayoutGuide).offset(yOffset)
-            make.bottom.lessThanOrEqualToSuperview().offset(-yOffset)
-        }
         
         let customView = UIView(frame: customViewFrame)
         customView.addSubview(likeButton)
         likeButton.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
+            make.edges.equalToSuperview()
             make.width.height.equalTo(likeButtonHeight)
         }
         
-        let rightBarButton = UIBarButtonItem(customView: likeButton)
+        let rightBarButton = UIBarButtonItem(customView: customView)
         navigationItem.rightBarButtonItem = rightBarButton
     }
     
@@ -99,7 +93,10 @@ class MovieViewController: UIViewController, NavigationTitleProtocol {
     private func remakeConstraintsForImage(image: UIImage?) {
         guard let image = image else { return }
         
-        let size = posterSizeForImage(image: image)
+        let maxWidth = view.frame.width - xOffset * 2
+        let maxHeight = view.frame.height - yOffset * 2
+        
+        let size = image.imageSize(maxWidth: maxWidth, maxHeight: maxHeight)
         let width = size.width
         let height = size.height
         
@@ -108,31 +105,6 @@ class MovieViewController: UIViewController, NavigationTitleProtocol {
             make.width.equalTo(width)
             make.height.equalTo(height)
         }
-    }
-    
-    private func posterSizeForImage(image: UIImage) -> CGSize {
-        var width = CGFloat(0)
-        var height = CGFloat(0)
-        let maxWidth = view.frame.width - xOffset * 2
-        let maxHeight = view.frame.height - yOffset * 2
-        
-        if image.size.height > width {
-            height = maxHeight
-            width = height * image.size.width / image.size.height
-        } else {
-            width = maxWidth
-            height = width * image.size.height / image.size.width
-        }
-        
-        if width > maxWidth {
-            width = maxWidth
-            height = width * image.size.height / image.size.width
-        } else if height > maxHeight {
-            height = maxHeight
-            width = height * image.size.width / image.size.height
-        }
-        
-        return CGSize(width: width, height: height)
     }
     
     @objc private func didTapOnButton(_ button: UIButton) {

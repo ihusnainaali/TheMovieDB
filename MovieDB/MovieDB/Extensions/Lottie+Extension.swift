@@ -9,9 +9,9 @@
 import Lottie
 
 extension LOTAnimationView {
-    static var videoCamAnimationView: LOTAnimationView? {
+    final class var videoCamAnimationView: LOTAnimationView? {
         let filename = "video_cam"
-        guard isFilenameValid(filename) else {
+        guard filename.isValidResourceFile() else {
             return nil
         }
         
@@ -20,9 +20,9 @@ extension LOTAnimationView {
         return view
     }
     
-    static var likeAnimationView: LOTAnimationView? {
+    final class var likeAnimationView: LOTAnimationView? {
         let filename = "like_pop_animation"
-        guard isFilenameValid(filename) else {
+        guard filename.isValidResourceFile() else {
             return nil
         }
         
@@ -31,9 +31,9 @@ extension LOTAnimationView {
         return view
     }
     
-    static var twitterLikeAnimationView: LOTAnimationView? {
+    final class var twitterLikeAnimationView: LOTAnimationView? {
         let filename = "TwitterFavoriteHeart"
-        guard isFilenameValid(filename) else {
+        guard filename.isValidResourceFile() else {
             return nil
         }
         
@@ -42,9 +42,9 @@ extension LOTAnimationView {
         return view
     }
     
-    static var infiniteLoaderAnimationView: LOTAnimationView? {
+    final class var infiniteLoaderAnimationView: LOTAnimationView? {
         let filename = "loader_4"
-        guard isFilenameValid(filename) else {
+        guard filename.isValidResourceFile() else {
             return nil
         }
         let view = LOTAnimationView(name: filename, bundle: Bundle.main)
@@ -52,11 +52,5 @@ extension LOTAnimationView {
         view.loopAnimation = true
         return view
     }
-    
-    static func isFilenameValid(_ filename: String) ->  Bool {
-        guard Bundle.main.url(forResource: filename, withExtension: "json") != nil else {
-            return false
-        }
-        return true
-    }
 }
+

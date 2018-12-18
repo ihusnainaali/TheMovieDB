@@ -14,8 +14,8 @@ class TwitterLikeButton: UIButton, Likeable {
     // MARK : - Protocol stubs
     
     var likeAnimationView = LOTAnimationView.twitterLikeAnimationView
-    var centerXOffset = CGFloat(10)
-    var centerYOffset = CGFloat(-2)
+    var centerXOffset = CGFloat(8)
+    var centerYOffset = CGFloat(0)
     var widthHeightMultiplier = CGFloat(2.7)
     
     override init(frame: CGRect) {
