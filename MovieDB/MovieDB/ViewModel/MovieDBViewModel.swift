@@ -17,7 +17,7 @@ class MovieDBViewModel: NSObject {
     
     //You can get your api key here https://developers.themoviedb.org/3/getting-started/introduction
     
-    var apiKey: String? 
+    var apiKey: String? = "a958639c02dfa3b7b4dedd5b32f98226"
     
     // MARK: - Constants
     
@@ -84,6 +84,8 @@ class MovieDBViewModel: NSObject {
     
     // MARK: - Public methods
     
+    // MARK: - Data
+    
     func fetchData() {
         guard let pageNumber = nextPageNumber else {
             didFetchAllPages = true
@@ -95,6 +97,7 @@ class MovieDBViewModel: NSObject {
             noApiKeyCompletionBlock?()
             return
         }
+        
         let query = "api_key=\(apiKey)&page=\(pageNumber)"
         
         networkClient.getRequest(path: path, query: query) { [weak self] data, error in
@@ -121,6 +124,8 @@ class MovieDBViewModel: NSObject {
         return MovieViewModel(movie: movie)
     }
     
+    // MARK: Sizes
+    
     func itemSizeInView(frame: CGRect) -> CGSize {
         return CGSize(width: frame.width - collectionViewPadding * 2, height: frame.width * 2.0 / 3.0)
     }
@@ -132,6 +137,8 @@ class MovieDBViewModel: NSObject {
     func footerSizeInView(frame: CGRect) -> CGSize {
         return CGSize(width: frame.width, height: shouldHideFooter ? 0 : collectionViewFooterHeight)
     }
+    
+    // MARK: Observers
     
     func observeFetchCompletion(_ block: @escaping CompletionBlock) {
         completionBlock = block

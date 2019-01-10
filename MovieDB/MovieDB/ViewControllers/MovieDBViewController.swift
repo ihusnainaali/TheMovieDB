@@ -73,18 +73,14 @@ class MovieDBViewController: UIViewController, NavigationTitleProtocol {
         addObservers()
         viewModel.fetchData()
         view.hideSubViewsWithAnimationDuration(0)
+        view.displaySubViewsWithAnimationDuration(0.5)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        view.displaySubViewsWithAnimationDuration(0.5)
-    }
-    
+
     // MARK: - Private methods
     
     private func setupViews() {
@@ -106,10 +102,9 @@ class MovieDBViewController: UIViewController, NavigationTitleProtocol {
     }
     
     private func addObservers() {
-        viewModel.observeFetchCompletion { [weak self] success, error in
-            if success {
-                self?.didFetchMovies()
-            }
+        viewModel.observeFetchCompletion { [weak self] success, _ in
+            guard success else { return }
+            self?.didFetchMovies()
         }
         
         viewModel.observeFetchedAllPagesCompletion { [weak self] in
@@ -122,11 +117,7 @@ class MovieDBViewController: UIViewController, NavigationTitleProtocol {
     }
     
     private func presentNoApiKeyAlert() {
-        let alertController = UIAlertController(title: "No api key",
-                                                message: "Please set the apiKey constant in MovieDBViewModel",
-                                                preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alertController.addAction(action)
+        let alertController = UIAlertController.noApiKeyAlert
         present(alertController, animated: true, completion: nil)
     }
 }
@@ -181,7 +172,8 @@ extension MovieDBViewController: UICollectionViewDataSource {
 extension MovieDBViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let movie = viewModel.movies[safe: indexPath.row] else { return }
-        let movieViewController = MovieViewController(viewModel: MovieViewModel(movie: movie))
+        let movieViewModel = MovieViewModel(movie: movie)
+        let movieViewController = MovieViewController(viewModel: movieViewModel)
         navigationController?.pushViewController(movieViewController, animated: true)
     }
 }

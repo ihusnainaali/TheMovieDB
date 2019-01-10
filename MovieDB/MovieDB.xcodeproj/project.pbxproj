@@ -33,6 +33,10 @@
 		424F290421B8807E0008BA55 /* MockNetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F290321B8807E0008BA55 /* MockNetworkClient.swift */; };
 		424F290721B881FA0008BA55 /* MovieDBViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F290621B881FA0008BA55 /* MovieDBViewModelTests.swift */; };
 		424F290921B897930008BA55 /* Lottie+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424F290821B897930008BA55 /* Lottie+Extension.swift */; };
+		42776F5D21C883930098CEE7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42776F5C21C883930098CEE7 /* String+Extension.swift */; };
+		42776F5F21C8842B0098CEE7 /* UserdefaultsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42776F5E21C8842B0098CEE7 /* UserdefaultsTests.swift */; };
+		42776F6121C938F10098CEE7 /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42776F6021C938F10098CEE7 /* UIAlertController+Extension.swift */; };
+		42776F6321C94F560098CEE7 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42776F6221C94F560098CEE7 /* UIImage+Extension.swift */; };
 		42D7D05421B699DA005C8282 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7D05321B699DA005C8282 /* MovieCollectionViewCell.swift */; };
 		42D7D05621B6A09C005C8282 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7D05521B6A09C005C8282 /* MovieViewModel.swift */; };
 		42D7D05921B6A239005C8282 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D7D05821B6A239005C8282 /* NSObject+Extension.swift */; };
@@ -85,6 +89,10 @@
 		424F290321B8807E0008BA55 /* MockNetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkClient.swift; sourceTree = "<group>"; };
 		424F290621B881FA0008BA55 /* MovieDBViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBViewModelTests.swift; sourceTree = "<group>"; };
 		424F290821B897930008BA55 /* Lottie+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lottie+Extension.swift"; sourceTree = "<group>"; };
+		42776F5C21C883930098CEE7 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		42776F5E21C8842B0098CEE7 /* UserdefaultsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserdefaultsTests.swift; sourceTree = "<group>"; };
+		42776F6021C938F10098CEE7 /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		42776F6221C94F560098CEE7 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		42D7D05321B699DA005C8282 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		42D7D05521B6A09C005C8282 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
 		42D7D05821B6A239005C8282 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
@@ -135,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				422E436D21C14D2C00197917 /* LottieExtensionTests.swift */,
+				42776F5E21C8842B0098CEE7 /* UserdefaultsTests.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,7 +287,10 @@
 				42D7D05A21B6A2F2005C8282 /* Collection+Extension.swift */,
 				424F290821B897930008BA55 /* Lottie+Extension.swift */,
 				42D7D05821B6A239005C8282 /* NSObject+Extension.swift */,
+				42776F5C21C883930098CEE7 /* String+Extension.swift */,
+				42776F6021C938F10098CEE7 /* UIAlertController+Extension.swift */,
 				42D7D05E21B74283005C8282 /* UIColor+Extension.swift */,
+				42776F6221C94F560098CEE7 /* UIImage+Extension.swift */,
 				422E436721C14A2700197917 /* UIView+Extension.swift */,
 				422E435621C085DA00197917 /* UserDefaults+Extension.swift */,
 			);
@@ -520,9 +532,12 @@
 				423520DC21B605BE0005477E /* Networking.swift in Sources */,
 				423520DE21B605F20005477E /* NetworkClient.swift in Sources */,
 				423520A621B5F5C30005477E /* AppDelegate.swift in Sources */,
+				42776F5D21C883930098CEE7 /* String+Extension.swift in Sources */,
+				42776F6121C938F10098CEE7 /* UIAlertController+Extension.swift in Sources */,
 				422E435321C078C300197917 /* LikeButton.swift in Sources */,
 				422E435721C085DA00197917 /* UserDefaults+Extension.swift in Sources */,
 				42D7D05621B6A09C005C8282 /* MovieViewModel.swift in Sources */,
+				42776F6321C94F560098CEE7 /* UIImage+Extension.swift in Sources */,
 				423520D721B601B30005477E /* Page.swift in Sources */,
 				42D7D05421B699DA005C8282 /* MovieCollectionViewCell.swift in Sources */,
 				42D7D05F21B74283005C8282 /* UIColor+Extension.swift in Sources */,
@@ -539,6 +554,7 @@
 			files = (
 				422E436E21C14D2C00197917 /* LottieExtensionTests.swift in Sources */,
 				424F290121B87D3F0008BA55 /* PageTests.swift in Sources */,
+				42776F5F21C8842B0098CEE7 /* UserdefaultsTests.swift in Sources */,
 				424F290421B8807E0008BA55 /* MockNetworkClient.swift in Sources */,
 				423520BB21B5F5C90005477E /* MovieTests.swift in Sources */,
 				424F290721B881FA0008BA55 /* MovieDBViewModelTests.swift in Sources */,
